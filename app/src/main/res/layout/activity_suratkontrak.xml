@@ -1,0 +1,437 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="app.kambingku.suratkontrak">
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/textView56"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                android:text="SURAT KONTRAK KEMITRAAN"
+                android:textAlignment="center"
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:id="@+id/textView58"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                android:text="Para pihak yang bertanda tangan di bawah ini, masing‐masing :"
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:id="@+id/textView59"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                android:lineSpacingExtra="4sp"
+                android:text="Nama \u0009\u0009\u0009\u0009\u0009\u0009\u0009\u0009\u0009\u0009	: 	Ardi Syahputra \nNo. KTP/Identitas 	\u0009\u0009\u0009: 	4  \nTempat Tanggal Lahir \u0009	: 	Medan, 1993-05-26 \nAlamat \u0009\u0009\u0009\u0009\u0009\u0009\u0009\u0009\u0009\u0009	: 	Medan  "
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:id="@+id/textView65"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                android:text="Bertindak selaku dan atas nama PT. Sinergi Bumi Sejahtera, selanjutnya dalam perjanjian ini disebut (Pihak Pertama) "
+                android:textAlignment="viewStart"
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:id="@+id/textView66"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                android:text="Nama 	: 	Sulaiman"
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:id="@+id/textView67"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                android:text="Jabatan 	: 	Direktur"
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:id="@+id/textView68"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                android:text="Pada hari ini, Wednesday (tanggal 10 bulan January tahun 2018 ) masing‐masing pihak telah sepakat mengadakan kontrak kemitraan (selanjutnya disebut Kontrak kemitraan), Kedua belah pihak (selanjutnya disebut Para Pihak) sepakat bahwa yang dimaksud dengan Usaha dalam Kontrak kemitraan ini adalah Kemitraan dalam pemeliharaan dan perawatan kambing betina hamil, selanjutnya Para Pihak sepakat untuk mengadakan/melangsungkan Kontrak kemitraan menurut ketentuan‐ketentuan dan syarat‐syarat yang diatur dalam klausul/pasal‐pasal sebagai berikut :"
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:id="@+id/textView69"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                android:text="PASAL 1"
+                android:textAlignment="center"
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:id="@+id/textView70"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                android:text="TEMPAT DAN LOKASI USAHA "
+                android:textAlignment="center"
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:id="@+id/textView71"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                android:text="PT. Sinergi Bumi Sejahtera adalah perusahaan yang beralamat di Jl. Aman Desa Tuntungan II Kecamatan Pancur Batu Kabupaten Deli Serdang Propinsi Sumatera Utara Selanjutnya Pihak Pertama menyatakan sah dan berwenang untuk mewakili/melakukan tindakan hukum atas usaha Kemitraan ternak Kambing tersebut. "
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:id="@+id/textView72"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                android:text="PASAL 2 "
+                android:textAlignment="center"
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:id="@+id/textView73"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                android:text="BAGI HASIL"
+                android:textAlignment="center"
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:id="@+id/textView74"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                android:text="(1) Kontrak ini adalah Usaha/Bisnis dengan sistem bagi hasil, dimana Pihak Pertama melakukan kegiatan pemeliharaan dan perawatan kambing betina hamil milik Pihak Kedua \n\n(2) Usaha ini sepenuhnya adalah milik Pihak Pertama. Peran Pihak Kedua dalam usaha ini sebatas pembelian ternak kambing hamil dan menitipkannya kepada pihak pertama untuk dipeliharan dan dirawat dalam masa 6 (enam) bulan sehingga Pihak Kedua tidak memiliki hak dan wewenang dalam mencampuri operasional Usaha. Hak Pihak Kedua sesuai yang diatur dalam Kontrak ini. \n\n(3) Segala resiko yg terjadi ke depannya menjadi tanggung jawab pihak Pertama sepenuhnya. "
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:id="@+id/textView75"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                android:text="PASAL 3"
+                android:textAlignment="center"
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:id="@+id/textView76"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                android:text="BIAYA KEMITRAAN"
+                android:textAlignment="center"
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:id="@+id/textView77"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                android:text="(1) Pihak Kedua melakukan penyetoran kepada Pihak Pertama berupa uang pokok kemitraan sebesar Rp. 5.000.000,- (lima juta rupiah) dengan perincian pembelian satu ekor kambing betina hamil sebesar Rp. 3.500.000,- (tiga juta rupiah) dan biaya pemeliharaan, perawatan, sewa kandang sebesar Rp. 1.500.000,- (satu juta lima ratus ribu rupiah) dan Pihak Kedua menyerahkan uang tersebut secara tunai. \n\n(2) Pihak Pertama mengakui telah menerima uang sejumlah tersebut dan Kontrak ini menjadi bukti sah penerimaan uang tersebut.  "
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:id="@+id/textView78"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                android:text="PASAL 4 "
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:id="@+id/textView79"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                android:text="MASA BERLAKU SURAT PERJANJIAN KONTRAK KEMITRAAN "
+                android:textAlignment="center"
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:id="@+id/textView80"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                android:text="(1) Kontrak kemitraan ini berlaku/berlangsung untuk jangka waktu selama 6 (enam) bulan, mulai berlaku sejak tanggal 10 bulan January tahun 2018 (10 January 2018 ) sampai dengan tanggal 10 bulan July tahun 2018 (10 July 2018 ). "
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:id="@+id/textView81"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                android:text="PASAL 5"
+                android:textAlignment="center"
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:id="@+id/textView96"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                android:text="PERIODE BAGI HASIL "
+                android:textAlignment="center"
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:id="@+id/textView95"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                android:text="(1) Pihak Pertama sepakat memberikan keuntungan bagi hasil kepada pihak kedua sebagai mitra ternak dengan perincian nilai pertambahan nilai dari ternak yang dibeli dan nilai jual anak kambing yang dilahirkan oleh ternak tersebut  \n\n(2) Adapun nilai pertambahan nilai dari ternak mitra dalam satu periode kontrak keitraan adalah sebesar Rp. 500.000,- (lima ratus ribu rupiah) per ekor dan nilai jual anak kambing yang dilahirkan oleh ternak tersebut masing-masing sebesar Rp. 250.000,- (dua ratus lima puluh ribu rupiah) per ekor..  \n\n(3) Keuntungan bagi hasil akan dibayarkan Pihak Pertama kepada Pihak Kedua pada akhir tanggal masa kotrak kemitraan dan akan disesuaikan dengan kelender hari kerja.  \n\n(4) Pembayaran akan dilakukan langsung ke rekening mitra yang terdaftar dan tidak dapat di alihkan ke rekening lainnya dengan cara transfer rekening dari Bank yang di tunjuk"
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:id="@+id/textView94"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                android:text="PASAL 6 "
+                android:textAlignment="center"
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:id="@+id/textView93"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                android:text="PENGEMBALIAN UANG POKOK KEMITRAAN "
+                android:textAlignment="center"
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:id="@+id/textView92"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                android:text="Pihak Pertama berkewajiban mengembalikan uang pokok kemitraan sebesar uang yang dibayarkan untuk pembelian kambing betina hamil di awal masa kontrak kemitraan sekaligus dengan jumlah nilai bagi hasil yang didapatkan dari hasil kemitraan tersebut (pasal 5 poin ke-)"
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:id="@+id/textView91"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                android:text="PASAL 7"
+                android:textAlignment="center"
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:id="@+id/textView90"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                android:text="PINALTY "
+                android:textAlignment="center"
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:id="@+id/textView89"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                android:text="1) Selama masa Kontrak kemitraan, Pihak Pertama maupun Pihak Kedua tidak dapat merubah atau membatalkan atau memutus kontrak ini secara sepihak, kecuali ada kesepakatan bersama yang diatur dalam addendum Kontrak. \n\n (2) Pembatalan kontrak oleh pihak kedua sebelum habis masa kontrak kemitraan akan dikenakan potongan biaya pemeliharaan, perawatan dan sewa kandang dan akan dihitung persatuan biaya harga dalam masa waktu kontrak berjalan dan tidak mendapatkan manfaat bagi hasil dari kenaikan harga jual induk kambing dan anak yang dilahirkan."
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:id="@+id/textView88"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                android:text="PASAL 8"
+                android:textAlignment="center"
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:id="@+id/textView87"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                android:text="AHLI WARIS "
+                android:textAlignment="center"
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:id="@+id/textView86"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                android:text="(1) Apabila Pihak Kedua sebagai mitra dalam masa kontrak mengalami halangan tetap atau meninggal dunia, maka segala urusan yang mengikat dalam kontrak kemitraan ini, Pihak Kedua dapat menunjuk ahli warisnya untuk dapat menerima manfaat dan bagi hasil dari kemitraan tersebut."
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:id="@+id/textView85"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                android:text="PASAL 9"
+                android:textAlignment="center"
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:id="@+id/textView84"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                android:text="SYARAT DAN KETENTUAN KONTRAK KEMITRAAN "
+                android:textAlignment="center"
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:id="@+id/textView83"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                android:text="(1) Kontrak kemitraan ini dikeluarkan secara otomatis setelah mitra melengkapi syarat dan ketentuan yang telah di tetapkan oleh Pihak Pertama  \n\n (2) Kontak Kemitraan ini merupakan kotrak elektronik dan tidak memerlukan tanda tangan ke dua belah pihak seperti telah diatur dalam undang-undang. "
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:id="@+id/textView82"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                android:text="PASAL 10"
+                android:textAlignment="center"
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:id="@+id/textView99"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                android:text="LAIN‐LAIN "
+                android:textAlignment="center"
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:id="@+id/textView98"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="(1) Surat perjanjian kontrak kerjasama ini dapat digunakan sah dan legal secara hukum, dan dapat dipertanggungjawabkan secara hukum di wilayah Kesatuan Negara Republik Indonesia (NKRI)  \n\n(2) Bahwa hal‐hal yang tidak dan/atau belum cukup diatur dalam Kontrak Kemitraan ini akan diputuskan bersama oleh Para Pihak secara Musyawarah serta dengan berpedoman pada ketentuan‐ketentuan dan jiwa dari perikatan/Kontrak ini, dan dituangkan secara tertulis dalam Addendum Kontrak yang merupakan bagian yang tidak terpisahkan dari Kontrak ini atau menjadi satu kesatuan dengan kontrak ini.  \n\n(3) Bahwa didalam semua dan segala sesuatu yang bertalian dengan Kontrak Kemitraan ini dengan segala akibatnya, maka Para Pihak sepakat memilih tempat kediaman hukum (domisili) yang umum dan tetap di Kantor Kepaniteraan Pengadilan Negeri Deli Serdang Propinsi Sumatera Utara."
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="10dp"
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:id="@+id/textView97"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                android:text="Demikian Kontrak Kemitraan ini dibuat dan diselesaikan pada hari dan tanggal seperti tersebut pada bagian awal Kontrak kemitraan ini. "
+                android:textAlignment="center"
+                android:textColor="@android:color/black" />
+
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                android:background="@color/primarygreen"
+                android:text="Terima"
+                android:textColor="@android:color/white" />
+        </LinearLayout>
+    </ScrollView>
+</android.support.constraint.ConstraintLayout>

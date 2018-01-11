@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="app.kambingku">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/logo3x"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/logo3x"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".login"
+            android:theme="@style/AppFullScreenTheme" />
+        <activity
+            android:name=".welcome"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppFullScreenTheme" />
+        <activity
+            android:name=".splash"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppFullScreenTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".drawer"
+            android:label="@string/title_activity_drawer"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".login_drawer"
+            android:label="@string/title_activity_login_drawer"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".detail_deskripsi"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".keranjang_belanja"
+            android:screenOrientation="portrait" />
+        <activity android:name=".daftar" />
+        <activity android:name=".isi_identitas" />
+        <activity android:name=".upload_dokumen" />
+        <activity android:name=".isi_bank" />
+        <activity android:name=".KonfirmasiPembayaran" />
+        <activity android:name=".history" />
+        <activity android:name=".akhir_pembayaran" />
+        <activity android:name=".suratkontrak" />
+        <activity android:name=".edit_profil"></activity>
+    </application>
+
+</manifest>
