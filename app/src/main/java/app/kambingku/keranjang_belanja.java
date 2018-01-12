@@ -213,6 +213,7 @@ public class keranjang_belanja extends AppCompatActivity {
 
                                 int id_ternak=sdata.getInt("id",0);
                                 int harga=sdata.getInt("harga",0);
+                                Log.d("harga",""+harga);
 
                                 //  Bundle a = new Bundle()
 /*

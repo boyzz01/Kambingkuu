@@ -157,7 +157,7 @@ public class detail_deskripsi extends AppCompatActivity {
                         a.putInt("id", sid);
                         a.putString("gender", snama);
                         a.putString("foto", foto1);
-                        a.putInt("harga", sid);
+                        a.putInt("harga", sharga);
                         a.commit();
                         //txtView.setText("" + 1);
                         if(sp.contains("username") && sp.contains("password")){
