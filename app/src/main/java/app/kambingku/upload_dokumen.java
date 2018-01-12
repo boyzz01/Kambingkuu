@@ -10,6 +10,7 @@ import android.provider.MediaStore;
 import android.provider.OpenableColumns;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -305,17 +306,42 @@ public class upload_dokumen extends AppCompatActivity {
                         if (uristring.startsWith("content://"))
                         {
                             Cursor cursor = null;
+                            Cursor cursor1=null;
                             try {
-                                cursor = upload_dokumen.this.getContentResolver().query(uktp,null,null,null,null);
+                                String[] projection = { MediaStore.Images.Media.DATA };
+                                cursor = upload_dokumen.this.getContentResolver().query(uktp,projection,null,null,null);
                                 if (cursor!= null && cursor.moveToFirst())
                                 {
-                                    displayname = cursor.getString(cursor.getColumnIndex(OpenableColumns.DISPLAY_NAME));
+
+                                    String filepath=cursor.getString(cursor.getColumnIndex(MediaStore.Images.Media.DATA));
+                                    ktp =new File(filepath);
+                                    Log.d("tess",filepath);
+//                                    displayname = cursor.getString(cursor.getColumnIndex(OpenableColumns.DISPLAY_NAME));
+                                    //  tktp.setText(displayname);
+
+                                }
+
+                            } finally {
+                                cursor.close();
+                            }
+
+
+                            try {
+                                //  String[] projection = { MediaStore.Images.Media.DATA };
+                                cursor1 = upload_dokumen.this.getContentResolver().query(uktp,null,null,null,null);
+                                if (cursor1!= null && cursor1.moveToFirst())
+                                {
+
+                                    String filepath=cursor1.getString(cursor1.getColumnIndex(MediaStore.Images.Media.DATA));
+                                    ktp =new File(filepath);
+                                    Log.d("tess",filepath);
+                                    displayname = cursor1.getString(cursor1.getColumnIndex(OpenableColumns.DISPLAY_NAME));
                                     tktp.setText(displayname);
 
                                 }
-                            }
-                            finally {
-                                cursor.close();
+
+                            } finally {
+                                cursor1.close();
                             }
                         }
                         else if (uristring.startsWith("file://"))
@@ -346,21 +372,46 @@ public class upload_dokumen extends AppCompatActivity {
                     if (uktp != null) {
                         String uristring=uktp.toString();
                         File myFile = new File(uristring);
-                        ktp=myFile;
+                       // ktp=myFile;
                         if (uristring.startsWith("content://"))
                         {
                             Cursor cursor = null;
+                            Cursor cursor1=null;
                             try {
-                                cursor = upload_dokumen.this.getContentResolver().query(uktp,null,null,null,null);
+                                String[] projection = { MediaStore.Images.Media.DATA };
+                                cursor = upload_dokumen.this.getContentResolver().query(uktp,projection,null,null,null);
                                 if (cursor!= null && cursor.moveToFirst())
                                 {
-                                    displayname = cursor.getString(cursor.getColumnIndex(OpenableColumns.DISPLAY_NAME));
+
+                                    String filepath=cursor.getString(cursor.getColumnIndex(MediaStore.Images.Media.DATA));
+                                     ktp =new File(filepath);
+                                    Log.d("tess",filepath);
+//                                    displayname = cursor.getString(cursor.getColumnIndex(OpenableColumns.DISPLAY_NAME));
+                                  //  tktp.setText(displayname);
+
+                                }
+
+                            } finally {
+                                cursor.close();
+                            }
+
+
+                            try {
+                                //  String[] projection = { MediaStore.Images.Media.DATA };
+                                cursor1 = upload_dokumen.this.getContentResolver().query(uktp,null,null,null,null);
+                                if (cursor1!= null && cursor1.moveToFirst())
+                                {
+
+                                    String filepath=cursor1.getString(cursor1.getColumnIndex(MediaStore.Images.Media.DATA));
+                                    ktp =new File(filepath);
+                                    Log.d("tess",filepath);
+                                    displayname = cursor1.getString(cursor1.getColumnIndex(OpenableColumns.DISPLAY_NAME));
                                     tktp.setText(displayname);
 
                                 }
-                            }
-                            finally {
-                                cursor.close();
+
+                            } finally {
+                                cursor1.close();
                             }
                         }
                         else if (uristring.startsWith("file://"))
@@ -396,17 +447,42 @@ public class upload_dokumen extends AppCompatActivity {
                         if (uristring.startsWith("content://"))
                         {
                             Cursor cursor = null;
+                            Cursor cursor1=null;
                             try {
-                                cursor = upload_dokumen.this.getContentResolver().query(ukk,null,null,null,null);
+                                String[] projection = { MediaStore.Images.Media.DATA };
+                                cursor = upload_dokumen.this.getContentResolver().query(ukk,projection,null,null,null);
                                 if (cursor!= null && cursor.moveToFirst())
                                 {
-                                    displayname = cursor.getString(cursor.getColumnIndex(OpenableColumns.DISPLAY_NAME));
+
+                                    String filepath=cursor.getString(cursor.getColumnIndex(MediaStore.Images.Media.DATA));
+                                    kk =new File(filepath);
+                                    Log.d("tess",filepath);
+//                                    displayname = cursor.getString(cursor.getColumnIndex(OpenableColumns.DISPLAY_NAME));
+                                    //  tktp.setText(displayname);
+
+                                }
+
+                            } finally {
+                                cursor.close();
+                            }
+
+
+                            try {
+                                //  String[] projection = { MediaStore.Images.Media.DATA };
+                                cursor1 = upload_dokumen.this.getContentResolver().query(ukk,null,null,null,null);
+                                if (cursor1!= null && cursor1.moveToFirst())
+                                {
+
+                                    String filepath=cursor1.getString(cursor1.getColumnIndex(MediaStore.Images.Media.DATA));
+                                   kk =new File(filepath);
+                                    Log.d("tess",filepath);
+                                    displayname = cursor1.getString(cursor1.getColumnIndex(OpenableColumns.DISPLAY_NAME));
                                     tkk.setText(displayname);
 
                                 }
-                            }
-                            finally {
-                                cursor.close();
+
+                            } finally {
+                                cursor1.close();
                             }
                         }
                         else if (uristring.startsWith("file://"))
@@ -442,17 +518,42 @@ public class upload_dokumen extends AppCompatActivity {
                         if (uristring.startsWith("content://"))
                         {
                             Cursor cursor = null;
+                            Cursor cursor1=null;
                             try {
-                                cursor = upload_dokumen.this.getContentResolver().query(ukk,null,null,null,null);
+                                String[] projection = { MediaStore.Images.Media.DATA };
+                                cursor = upload_dokumen.this.getContentResolver().query(ukk,projection,null,null,null);
                                 if (cursor!= null && cursor.moveToFirst())
                                 {
-                                    displayname = cursor.getString(cursor.getColumnIndex(OpenableColumns.DISPLAY_NAME));
+
+                                    String filepath=cursor.getString(cursor.getColumnIndex(MediaStore.Images.Media.DATA));
+                                    kk =new File(filepath);
+                                    Log.d("tess",filepath);
+//                                    displayname = cursor.getString(cursor.getColumnIndex(OpenableColumns.DISPLAY_NAME));
+                                    //  tktp.setText(displayname);
+
+                                }
+
+                            } finally {
+                                cursor.close();
+                            }
+
+
+                            try {
+                                //  String[] projection = { MediaStore.Images.Media.DATA };
+                                cursor1 = upload_dokumen.this.getContentResolver().query(ukk,null,null,null,null);
+                                if (cursor1!= null && cursor1.moveToFirst())
+                                {
+
+                                    String filepath=cursor1.getString(cursor1.getColumnIndex(MediaStore.Images.Media.DATA));
+                                    kk =new File(filepath);
+                                    Log.d("tess",filepath);
+                                    displayname = cursor1.getString(cursor1.getColumnIndex(OpenableColumns.DISPLAY_NAME));
                                     tkk.setText(displayname);
 
                                 }
-                            }
-                            finally {
-                                cursor.close();
+
+                            } finally {
+                                cursor1.close();
                             }
                         }
                         else if (uristring.startsWith("file://"))
@@ -487,17 +588,42 @@ public class upload_dokumen extends AppCompatActivity {
                         if (uristring.startsWith("content://"))
                         {
                             Cursor cursor = null;
+                            Cursor cursor1=null;
                             try {
-                                cursor = upload_dokumen.this.getContentResolver().query(upp,null,null,null,null);
+                                String[] projection = { MediaStore.Images.Media.DATA };
+                                cursor = upload_dokumen.this.getContentResolver().query(upp,projection,null,null,null);
                                 if (cursor!= null && cursor.moveToFirst())
                                 {
-                                    displayname = cursor.getString(cursor.getColumnIndex(OpenableColumns.DISPLAY_NAME));
+
+                                    String filepath=cursor.getString(cursor.getColumnIndex(MediaStore.Images.Media.DATA));
+                                    pp =new File(filepath);
+                                    Log.d("tess",filepath);
+//                                    displayname = cursor.getString(cursor.getColumnIndex(OpenableColumns.DISPLAY_NAME));
+                                    //  tktp.setText(displayname);
+
+                                }
+
+                            } finally {
+                                cursor.close();
+                            }
+
+
+                            try {
+                                //  String[] projection = { MediaStore.Images.Media.DATA };
+                                cursor1 = upload_dokumen.this.getContentResolver().query(upp,null,null,null,null);
+                                if (cursor1!= null && cursor1.moveToFirst())
+                                {
+
+                                    String filepath=cursor1.getString(cursor1.getColumnIndex(MediaStore.Images.Media.DATA));
+                                    pp =new File(filepath);
+                                    Log.d("tess",filepath);
+                                    displayname = cursor1.getString(cursor1.getColumnIndex(OpenableColumns.DISPLAY_NAME));
                                     tpp.setText(displayname);
 
                                 }
-                            }
-                            finally {
-                                cursor.close();
+
+                            } finally {
+                                cursor1.close();
                             }
                         }
                         else if (uristring.startsWith("file://"))
@@ -533,17 +659,42 @@ public class upload_dokumen extends AppCompatActivity {
                         if (uristring.startsWith("content://"))
                         {
                             Cursor cursor = null;
+                            Cursor cursor1=null;
                             try {
-                                cursor = upload_dokumen.this.getContentResolver().query(upp,null,null,null,null);
+                                String[] projection = { MediaStore.Images.Media.DATA };
+                                cursor = upload_dokumen.this.getContentResolver().query(upp,projection,null,null,null);
                                 if (cursor!= null && cursor.moveToFirst())
                                 {
-                                    displayname = cursor.getString(cursor.getColumnIndex(OpenableColumns.DISPLAY_NAME));
+
+                                    String filepath=cursor.getString(cursor.getColumnIndex(MediaStore.Images.Media.DATA));
+                                    pp =new File(filepath);
+                                    Log.d("tess",filepath);
+//                                    displayname = cursor.getString(cursor.getColumnIndex(OpenableColumns.DISPLAY_NAME));
+                                    //  tktp.setText(displayname);
+
+                                }
+
+                            } finally {
+                                cursor.close();
+                            }
+
+
+                            try {
+                                //  String[] projection = { MediaStore.Images.Media.DATA };
+                                cursor1 = upload_dokumen.this.getContentResolver().query(upp,null,null,null,null);
+                                if (cursor1!= null && cursor1.moveToFirst())
+                                {
+
+                                    String filepath=cursor1.getString(cursor1.getColumnIndex(MediaStore.Images.Media.DATA));
+                                    pp =new File(filepath);
+                                    Log.d("tess",filepath);
+                                    displayname = cursor1.getString(cursor1.getColumnIndex(OpenableColumns.DISPLAY_NAME));
                                     tpp.setText(displayname);
 
                                 }
-                            }
-                            finally {
-                                cursor.close();
+
+                            } finally {
+                                cursor1.close();
                             }
                         }
                         else if (uristring.startsWith("file://"))

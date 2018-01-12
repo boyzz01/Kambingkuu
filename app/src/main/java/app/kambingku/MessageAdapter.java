@@ -92,6 +92,7 @@ public class MessageAdapter  extends RecyclerView.Adapter<MessageAdapter.Message
         final product c = mMessageList.get(i);
         viewHolder.nama.setText(c.getGender()+" Terhebat di Kelasnya");
         viewHolder.id_a.setText("#"+c.getId_ternak());
+        Log.d("harga",""+c.getHarga());
         String test=""+NumberFormat.getNumberInstance(Locale.US).format(c.getHarga());
         test=test.replaceAll(",",".");
         viewHolder.harga.setText("Rp."+test);

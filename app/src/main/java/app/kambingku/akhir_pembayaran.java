@@ -7,6 +7,9 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Path;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Environment;
@@ -50,8 +53,9 @@ public class akhir_pembayaran extends AppCompatActivity {
     Button lanjut;
     Boolean centang=false;
     Boolean up=false;
-    public File file;
+    public File file,fileupload;
     Uri imageUri=null;
+    Uri tempuriiiii;
     ImageView tes;
     private static final int REQUEST_CAMERA = 1;
     private static final int SELECT_FILE = 2;
@@ -72,6 +76,8 @@ public class akhir_pembayaran extends AppCompatActivity {
         radioGroup=findViewById(R.id.radiosumber);
         pinjaman=findViewById(R.id.pinjaman);
         lanjut=findViewById(R.id.lanjut);
+
+
         c=this;
 
 
@@ -167,6 +173,9 @@ public class akhir_pembayaran extends AppCompatActivity {
         lanjut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                konek data=new konek();
+                data.go();
+                /*
                     if (namabank.getText().toString().equals("") || atasnama.getText().toString().equals("") || jumlah.getText().toString().equals(""))
                     {
                         Toast.makeText(akhir_pembayaran.this,"Tidak Boleh Ada Data Yang Kosong",Toast.LENGTH_SHORT).show();
@@ -180,10 +189,10 @@ public class akhir_pembayaran extends AppCompatActivity {
                         }
                         else
                         {
-                            konek data=new konek();
-                            data.go();
+
                         }
                     }
+                    */
             }
         });
     }
@@ -192,11 +201,14 @@ public class akhir_pembayaran extends AppCompatActivity {
     {
 
 
-
-
-
         public void go()
         {
+           // Uri uri=tes.get
+
+
+            tempuriiiii=Uri.fromFile(fileupload);
+
+
             transaksi=akhir_pembayaran.this.getSharedPreferences("transaksi", akhir_pembayaran.this.MODE_PRIVATE);
             String id_transaksi=transaksi.getString("id"," ");
 
@@ -204,13 +216,14 @@ public class akhir_pembayaran extends AppCompatActivity {
             sp=akhir_pembayaran.this.getSharedPreferences("login", akhir_pembayaran.this.MODE_PRIVATE);
             String user=sp.getString("id"," ");
 
+            file=new File(tempuriiiii.toString());
             pd=new ProgressDialog(c);
             pd.setTitle("Loading");
             pd.setMessage("Loading....Please wait");
             pd.show();
             pd.setCancelable(false);
             AndroidNetworking.upload(url)
-                    .addMultipartFile("bukti",file)
+                    .addMultipartFile("bukti",fileupload)
                     .addMultipartParameter("id_transaksi",""+id_transaksi)
                     .addMultipartParameter("jumlah_transfer",jumlah.getText().toString())
                     .addMultipartParameter("option_sumberdana0",""+sumber)
@@ -267,9 +280,9 @@ public class akhir_pembayaran extends AppCompatActivity {
         {
             case 1: {
                 if (resultCode == RESULT_OK) {
-                   file = new File(Environment.getExternalStorageDirectory().getPath(), "photo.jpg");
+                   fileupload = new File(Environment.getExternalStorageDirectory().getPath(), "photo.jpg");
 
-                   imageUri = Uri.fromFile(file);
+                   imageUri = Uri.fromFile(fileupload);
 
                     Log.d("imageuri",imageUri.toString());
 
@@ -285,17 +298,42 @@ public class akhir_pembayaran extends AppCompatActivity {
                         if (uristring.startsWith("content://"))
                         {
                             Cursor cursor = null;
+                            Cursor cursor1=null;
                             try {
-                                cursor = akhir_pembayaran.this.getContentResolver().query(imageUri,null,null,null,null);
+                                String[] projection = { MediaStore.Images.Media.DATA };
+                                cursor = akhir_pembayaran.this.getContentResolver().query(imageUri,projection,null,null,null);
                                 if (cursor!= null && cursor.moveToFirst())
                                 {
-                                    displayname = cursor.getString(cursor.getColumnIndex(OpenableColumns.DISPLAY_NAME));
+
+                                    String filepath=cursor.getString(cursor.getColumnIndex(MediaStore.Images.Media.DATA));
+                                    fileupload =new File(filepath);
+                                    Log.d("tess",filepath);
+//                                    displayname = cursor.getString(cursor.getColumnIndex(OpenableColumns.DISPLAY_NAME));
+                                   // upload.setText();
+
+                                }
+
+                            } finally {
+                                cursor.close();
+                            }
+
+
+                            try {
+                                //  String[] projection = { MediaStore.Images.Media.DATA };
+                                cursor1 = akhir_pembayaran.this.getContentResolver().query(imageUri,null,null,null,null);
+                                if (cursor1!= null && cursor1.moveToFirst())
+                                {
+
+                                    String filepath=cursor1.getString(cursor1.getColumnIndex(MediaStore.Images.Media.DATA));
+                                    fileupload =new File(filepath);
+                                    Log.d("tess",filepath);
+                                    displayname = cursor1.getString(cursor1.getColumnIndex(OpenableColumns.DISPLAY_NAME));
                                     upload.setText(displayname);
 
                                 }
-                            }
-                            finally {
-                                cursor.close();
+
+                            } finally {
+                                cursor1.close();
                             }
                         }
                         else if (uristring.startsWith("file://"))
@@ -316,7 +354,8 @@ public class akhir_pembayaran extends AppCompatActivity {
                 if (resultCode == RESULT_OK) {
 
                     imageUri = data.getData();
-                    //push(imageUri);
+
+
                     String displayname;
                     Log.d("imageuri",imageUri.toString());
 
@@ -325,13 +364,28 @@ public class akhir_pembayaran extends AppCompatActivity {
                     //  Bitmap bmp = BitmapFactory.decodeFile();
 
 
+                    if (imageUri != null)
+                     {
 
-                    if (imageUri != null) {
-                        Uri temp;
                         String uristring=imageUri.toString();
-                        File myFile = new File(uristring);
+                        file= new File(uristring);
+                        if (file.exists())
+                        {
+                            Log.d("1","1");
+                           tempuriiiii=Uri.fromFile(file);
+                        }
+                        else
+                        {
+                            Log.d("2","2");
+                            tempuriiiii=Uri.parse(uristring);
+                        }
+
+
+
+
+
                         Log.d("uristring",uristring);
-                        file=myFile;
+
 
 
 
@@ -340,36 +394,72 @@ public class akhir_pembayaran extends AppCompatActivity {
                         if (uristring.startsWith("content://"))
                         {
                             Cursor cursor = null;
+                            Cursor cursor1=null;
                             try {
-                                cursor = akhir_pembayaran.this.getContentResolver().query(imageUri,null,null,null,null);
+                                String[] projection = { MediaStore.Images.Media.DATA };
+                                cursor = akhir_pembayaran.this.getContentResolver().query(imageUri,projection,null,null,null);
                                 if (cursor!= null && cursor.moveToFirst())
                                 {
-                                    String filepath=cursor.getString(0);
+
+                                    String filepath=cursor.getString(cursor.getColumnIndex(MediaStore.Images.Media.DATA));
+                                    fileupload =new File(filepath);
                                     Log.d("tess",filepath);
-                                    displayname = cursor.getString(cursor.getColumnIndex(OpenableColumns.DISPLAY_NAME));
-                                    upload.setText(displayname+" content");
+//                                    displayname = cursor.getString(cursor.getColumnIndex(OpenableColumns.DISPLAY_NAME));
+                                //    upload.setText(" content");
 
                                 }
 
                             } finally {
                                 cursor.close();
                             }
+
+
+                            try {
+                              //  String[] projection = { MediaStore.Images.Media.DATA };
+                                cursor1 = akhir_pembayaran.this.getContentResolver().query(imageUri,null,null,null,null);
+                                if (cursor1!= null && cursor1.moveToFirst())
+                                {
+
+                                    String filepath=cursor1.getString(cursor1.getColumnIndex(MediaStore.Images.Media.DATA));
+                                    fileupload =new File(filepath);
+                                    Log.d("tess",filepath);
+                                    displayname = cursor1.getString(cursor1.getColumnIndex(OpenableColumns.DISPLAY_NAME));
+                                    upload.setText(displayname);
+
+                                }
+
+                            } finally {
+                                cursor1.close();
+                            }
                         }
                         else if (uristring.startsWith("file://"))
                         {
-                            displayname= myFile.getName();
-                            upload.setText(displayname+" file");
+                            displayname= file.getName();
+                            upload.setText(displayname);
 
                         }
 
                     } else {
                         Toast.makeText(akhir_pembayaran.this, "berhasil", Toast.LENGTH_SHORT).show();
                     }
+
                 }
             }
 
             break;
         }
         super.onActivityResult(requestCode, resultCode, data);
+    }
+
+    public String getPath(Uri uri) {
+        String[] projection = { MediaStore.Images.Media.DATA };
+        Cursor cursor = getContentResolver().query(uri, projection, null, null, null);
+        int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
+        cursor.moveToFirst();
+        int columnIndex = cursor.getColumnIndex(projection[0]);
+        String filePath = cursor.getString(columnIndex);
+        cursor.close();
+        Bitmap yourSelectedImage = BitmapFactory.decodeFile(filePath);
+        return cursor.getString(column_index);
     }
 }

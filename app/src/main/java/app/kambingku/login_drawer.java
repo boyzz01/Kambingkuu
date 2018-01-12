@@ -97,7 +97,6 @@ public class login_drawer extends AppCompatActivity
 
 
 
-
         if (!sp.contains("notif") )
         {
             notif.setVisibility(View.INVISIBLE);

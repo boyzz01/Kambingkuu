@@ -15,8 +15,8 @@
 
         <android.support.constraint.ConstraintLayout
             android:id="@+id/constraintLayout2"
-            android:layout_width="0dp"
-            android:layout_height="43dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
@@ -209,18 +209,6 @@
             app:layout_constraintVertical_bias="0.533" />
 
         <TextView
-            android:id="@+id/notif"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:paddingLeft="3dp"
-            android:paddingRight="3dp"
-            app:layout_constraintBottom_toTopOf="@+id/cart"
-            app:layout_constraintEnd_toEndOf="@+id/cart"
-            app:layout_constraintStart_toStartOf="@+id/cart"
-            app:layout_constraintTop_toTopOf="@+id/cart" />
-
-        <TextView
             android:id="@+id/textView27"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -238,6 +226,21 @@
             app:layout_constraintStart_toStartOf="@+id/drawer_icon"
             app:layout_constraintTop_toTopOf="@+id/drawer_icon"
             app:layout_constraintVertical_bias="0.615" />
+
+        <TextView
+            android:id="@+id/notif"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:paddingLeft="3dp"
+            android:paddingRight="3dp"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/cart"
+            app:layout_constraintEnd_toEndOf="@+id/cart"
+            app:layout_constraintStart_toStartOf="@+id/cart"
+            app:layout_constraintTop_toTopOf="@+id/cart" />
 
     </android.support.constraint.ConstraintLayout>
 
