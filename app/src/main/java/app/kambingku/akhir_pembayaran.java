@@ -86,7 +86,7 @@ public class akhir_pembayaran extends AppCompatActivity {
                 }
                 if (i==R.id.pinjaman)
                 {
-                    sumber=0;
+                    sumber=2;
 
                 }
             }

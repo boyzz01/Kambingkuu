@@ -7,6 +7,7 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -38,6 +39,7 @@ public class selesai extends Fragment {
     TextView belum;
     ProgressDialog pd;
     Context c;
+    SwipeRefreshLayout swipeRefreshLayout;
 
 
     @Override
@@ -59,13 +61,22 @@ public class selesai extends Fragment {
         belum=view.findViewById(R.id.belum);
         rv.setHasFixedSize(true);
         c=this.getActivity();
+        swipeRefreshLayout=view.findViewById(R.id.swipeRefreshLayout);
         rv.setLayoutManager(new LinearLayoutManager(this.getContext()));
         sp = this.getContext().getSharedPreferences("login", this.getContext().MODE_PRIVATE);
         String id=sp.getString("id"," ");
-        String url="https://idtronik.com/kambing/Ajax/list_history?iduser="+id;
+        final String url="https://idtronik.com/kambing/Ajax/list_history?iduser="+id;
       //  data= new MySQLClient(view.getContext());
      //   recyclerView.setAdapter(data.proses(url));
        // String url="http://idtronik.com/kambing/Ajax/list_history?iduser=4";
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                test data=new test();
+                data.proses(url);
+                swipeRefreshLayout.setRefreshing(false);
+            }
+        });
         test data=new test();
         data.proses(url);
         return view;

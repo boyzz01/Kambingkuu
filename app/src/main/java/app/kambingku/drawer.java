@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -27,6 +28,7 @@ public class drawer extends AppCompatActivity
     private SharedPreferences sp;
     MySQLClient data;
     ImageView cart;
+    SwipeRefreshLayout swipeRefreshLayout;
 
     public static TextView notif;
 
@@ -58,6 +60,7 @@ public class drawer extends AppCompatActivity
         //setSupportActionBar(toolbar);
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        swipeRefreshLayout=findViewById(R.id.swipeRefreshLayout);
 
 
         View headerview = navigationView.getHeaderView(0);
@@ -108,6 +111,15 @@ public class drawer extends AppCompatActivity
 
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                data= new MySQLClient(drawer.this);
+                data.retrieve("http://idtronik.com/kambing/ajax/list_products");
+                swipeRefreshLayout.setRefreshing(false);
+            }
+        });
 
         data= new MySQLClient(this);
         data.retrieve("http://idtronik.com/kambing/ajax/list_products");

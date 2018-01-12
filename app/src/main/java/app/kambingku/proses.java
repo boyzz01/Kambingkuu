@@ -9,6 +9,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.constraint.ConstraintLayout;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -41,6 +42,7 @@ public class proses extends Fragment {
     ProgressDialog pd;
     TextView belum;
     Context c;
+    SwipeRefreshLayout swipeRefreshLayout;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -72,9 +74,18 @@ public class proses extends Fragment {
         rv.setLayoutManager(new LinearLayoutManager(this.getActivity()));
         sp = this.getContext().getSharedPreferences("login", this.getContext().MODE_PRIVATE);
         String id=sp.getString("id"," ");
+        swipeRefreshLayout=view.findViewById(R.id.swipeRefreshLayout);
 
        // data= new MySQLClient(this.getActivity());
-        String url="http://idtronik.com/kambing/Ajax/list_history?iduser="+id;
+        final String url="http://idtronik.com/kambing/Ajax/list_history?iduser="+id;
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                test data=new test();
+                data.proses(url);
+                swipeRefreshLayout.setRefreshing(false);
+            }
+        });
         test data=new test();
         data.proses(url);
         return  view;

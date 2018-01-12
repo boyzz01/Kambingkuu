@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -30,7 +31,9 @@ public class keranjang_belanja extends AppCompatActivity {
     ProgressDialog pd;
     int kode_unik;
     int sum;
+    SwipeRefreshLayout swipeRefreshLayout;
     TextView textViewkode,textViewsum;
+    public int selesai=0;
 
     public static Boolean kosong=false;
 
@@ -68,6 +71,7 @@ public class keranjang_belanja extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_keranjang_belanja);
+     //   swipeRefreshLayout=findViewById(R.id.swipeRefreshLayout);
 
 
 
@@ -85,7 +89,7 @@ public class keranjang_belanja extends AppCompatActivity {
         data=new MySQLClient(this);
         sp = this.getSharedPreferences("login", this.MODE_PRIVATE);
 
-        int temp=sp.getInt("notif",0);
+        final int temp=sp.getInt("notif",0);
         Log.d("notif",""+temp);
 
 
@@ -165,6 +169,7 @@ public class keranjang_belanja extends AppCompatActivity {
 
 
 
+
             String id_user=sp.getString("id"," ");
             pd=new ProgressDialog(keranjang_belanja.this);
             pd.setTitle("Loading");
@@ -224,6 +229,7 @@ public class keranjang_belanja extends AppCompatActivity {
                                 //
                                 // SharedPreferences.Editor e = sdata.edit();
 
+                                final int finalI = i;
                                 AndroidNetworking.post("https://idtronik.com/kambing/ajax/pembayaran_details")
                                         .addBodyParameter("id",""+id_ternak)
                                         .addBodyParameter("id_transaksi",""+id_transaksi)
@@ -238,8 +244,9 @@ public class keranjang_belanja extends AppCompatActivity {
                                                 Log.d("berhasil",response.toString());
 
                                                 int temptotal=sp.getInt("jumlah",0);
-                                                Intent mainIntent = new Intent(keranjang_belanja.this, KonfirmasiPembayaran.class);
 
+
+                                                Log.d("selesai dalam",""+selesai);
                                                 transaksi=keranjang_belanja.this.getSharedPreferences("transaksi", keranjang_belanja.this.MODE_PRIVATE);
                                                 SharedPreferences.Editor e=transaksi.edit();
                                                 e.putInt("kode_unik",kode_unik);
@@ -249,9 +256,12 @@ public class keranjang_belanja extends AppCompatActivity {
                                                 SharedPreferences.Editor a=sp.edit();
                                                 a.putInt("notif",0);
                                               a.commit();
+                                                if (finalI ==jumlah)
+                                                {
+                                                    Intent mainIntent = new Intent(keranjang_belanja.this, KonfirmasiPembayaran.class);
+                                                    keranjang_belanja.this.startActivity(mainIntent);
+                                                }
 
-                                                keranjang_belanja.this.startActivity(mainIntent);
-                                                finish();
 
                                                 pd.dismiss();
                                             }
@@ -268,6 +278,9 @@ public class keranjang_belanja extends AppCompatActivity {
 
 
                             }
+
+
+
 
 
 

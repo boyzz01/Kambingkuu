@@ -33,11 +33,11 @@
             <item
                 android:id="@+id/edit_profile"
                 android:icon="@drawable/icon_edit"
-                android:title="Edit Profile" />
+                android:title="Ubah Profil" />
             <item
                 android:id="@+id/logout"
                 android:icon="@drawable/icon_logout"
-                android:title="Log Out" />
+                android:title="Keluar" />
         </menu>
     </item>
 

@@ -35,6 +35,16 @@ public class KonfirmasiPembayaran extends AppCompatActivity {
     private ProgressDialog pd;
 
     @Override
+    public void onBackPressed() {
+
+        Intent goa = new Intent(KonfirmasiPembayaran.this,login_drawer.class);
+        goa.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(goa);
+
+        super.onBackPressed();
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_konfirmasi_pembayaran);

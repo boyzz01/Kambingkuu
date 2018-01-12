@@ -1,6 +1,8 @@
 package app.kambingku;
 
 import android.app.Activity;
+import android.content.Context;
+import android.content.ContextWrapper;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.widget.RecyclerView;
@@ -131,7 +133,8 @@ public class MessageAdapter  extends RecyclerView.Adapter<MessageAdapter.Message
 
 
 
-                            TextView txtView = (TextView) ((Activity) view.getContext()).findViewById(R.id.notif);
+                            TextView txtView = (TextView) ((Activity) getActivity(view) ).findViewById(R.id.notif);
+                            view.isFocused();
                             txtView.setVisibility(View.VISIBLE);
                             SharedPreferences.Editor e = sp.edit();
                             int temp;
@@ -250,6 +253,17 @@ public class MessageAdapter  extends RecyclerView.Adapter<MessageAdapter.Message
         });
 
 
+    }
+
+    private Activity getActivity(View view) {
+        Context context = view.getContext();
+        while (context instanceof ContextWrapper) {
+            if (context instanceof Activity) {
+                return (Activity)context;
+            }
+            context = ((ContextWrapper)context).getBaseContext();
+        }
+        return null;
     }
 
     public static int getAge(Calendar dob) throws Exception {

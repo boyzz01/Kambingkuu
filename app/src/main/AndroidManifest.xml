@@ -47,15 +47,24 @@
         <activity
             android:name=".keranjang_belanja"
             android:screenOrientation="portrait" />
-        <activity android:name=".daftar" />
-        <activity android:name=".isi_identitas" />
-        <activity android:name=".upload_dokumen" />
-        <activity android:name=".isi_bank" />
-        <activity android:name=".KonfirmasiPembayaran" />
-        <activity android:name=".history" />
-        <activity android:name=".akhir_pembayaran" />
-        <activity android:name=".suratkontrak" />
-        <activity android:name=".edit_profil"></activity>
+        <activity android:name=".daftar"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".isi_identitas"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".upload_dokumen"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".isi_bank"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".KonfirmasiPembayaran"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".history"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".akhir_pembayaran"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".suratkontrak"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".edit_profil"
+            android:screenOrientation="portrait"></activity>
     </application>
 
 </manifest>

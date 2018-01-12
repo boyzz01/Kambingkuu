@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.support.annotation.RequiresApi;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
@@ -50,6 +51,7 @@ public class login_drawer extends AppCompatActivity
     MySQLClient data;
     RecyclerView recyclerView;
     ImageView cart;
+    SwipeRefreshLayout swipeRefreshLayout;
 
     public static TextView notif;
 
@@ -89,6 +91,11 @@ public class login_drawer extends AppCompatActivity
         notif=findViewById(R.id.notif);
         cart=findViewById(R.id.cart);
 
+        swipeRefreshLayout=findViewById(R.id.swipeRefreshLayout);
+
+
+
+
 
 
         if (!sp.contains("notif") )
@@ -121,6 +128,16 @@ public class login_drawer extends AppCompatActivity
         });
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                data= new MySQLClient(login_drawer.this);
+                data.retrieve("http://idtronik.com/kambing/ajax/list_products");
+                swipeRefreshLayout.setRefreshing(false);
+            }
+        });
 
         ImageView icon_drawer = (ImageView) findViewById(R.id.drawer);
 

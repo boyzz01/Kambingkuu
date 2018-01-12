@@ -30,16 +30,16 @@
             android:layout_height="40dp"
             android:layout_below="@+id/editText2"
             android:layout_centerHorizontal="true"
-            android:layout_marginBottom="16dp"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
             android:background="@color/primarygreen"
             android:gravity="center"
             android:text="Lanjut"
             android:textColor="@android:color/white"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/jeniskelamain" />
 
         <TextView
             android:id="@+id/textView13"
@@ -105,9 +105,10 @@
 
         <TextView
             android:id="@+id/tanggallahir"
-            android:layout_width="150dp"
+            android:layout_width="250dp"
             android:layout_height="35dp"
-            android:layout_marginStart="32dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:background="@drawable/rectangular_input"
             android:ems="10"
@@ -116,6 +117,7 @@
             android:inputType="date"
             android:paddingLeft="5dp"
             android:textAlignment="viewStart"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tempatlahir" />
 
