@@ -95,6 +95,23 @@
                 app:layout_constraintEnd_toEndOf="@+id/imageView32"
                 app:layout_constraintStart_toStartOf="@+id/imageView32"
                 app:layout_constraintTop_toTopOf="@+id/imageView32" />
+
+            <TextView
+                android:id="@+id/sold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:text="Produk Sedang Tidak Tersedia"
+                android:textColor="@android:color/black"
+                android:textStyle="bold"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="@+id/gambarp"
+                app:layout_constraintEnd_toEndOf="@+id/gambarp"
+                app:layout_constraintStart_toStartOf="@+id/gambarp"
+                app:layout_constraintTop_toTopOf="@+id/gambarp" />
         </android.support.constraint.ConstraintLayout>
     </android.support.v7.widget.CardView>
 

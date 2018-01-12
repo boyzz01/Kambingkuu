@@ -243,9 +243,11 @@ public class MySQLClient extends AsyncTask<String,Void,String> {
 
 
         }
+        sp = c.getSharedPreferences("login", c.MODE_PRIVATE);
         SharedPreferences.Editor e = sp.edit();
         e.putInt("jumlah",jum);
         e.commit();
+        Log.d("jum",""+jum);
 
         String temp=""+ NumberFormat.getNumberInstance(Locale.US).format(jum);
         temp=temp.replaceAll(",",".");

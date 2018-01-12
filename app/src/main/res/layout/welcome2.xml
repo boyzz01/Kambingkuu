@@ -100,24 +100,22 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imageView8"
-        app:srcCompat="@drawable/vector_smart_object" />
+        app:srcCompat="@drawable/logo3x" />
 
     <TextView
         android:id="@+id/textView14"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="22dp"
-        android:layout_marginEnd="123dp"
-        android:layout_marginStart="152dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="89dp"
         android:lineSpacingExtra="11sp"
-        android:text="Kambingku"
+        android:text="Kambing Ummat"
         android:textColor="@android:color/white"
         android:textSize="17sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageView9"
         app:layout_constraintTop_toTopOf="@+id/imageView8" />
 
     <ImageView

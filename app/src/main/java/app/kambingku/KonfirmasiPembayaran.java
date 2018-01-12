@@ -31,7 +31,7 @@ public class KonfirmasiPembayaran extends AppCompatActivity {
     SharedPreferences sp,sdata,transaksi;
     TextView jumlah;
     Button lanjut;
-    TextView textView;
+    TextView textView,uniktxt,semuaa;
     private ProgressDialog pd;
 
     @Override
@@ -41,7 +41,7 @@ public class KonfirmasiPembayaran extends AppCompatActivity {
         Context c=this;
 
         sp = c.getSharedPreferences("login", c.MODE_PRIVATE);
-
+        transaksi=KonfirmasiPembayaran.this.getSharedPreferences("transaksi", KonfirmasiPembayaran.this.MODE_PRIVATE);
 
         jumlah=findViewById(R.id.total);
 
@@ -49,11 +49,17 @@ public class KonfirmasiPembayaran extends AppCompatActivity {
 
         String nama=sp.getString("namalengkap"," ");
 
+        uniktxt=findViewById(R.id.kodeunik);
+        semuaa=findViewById(R.id.sum);
+
         textView.setText("Terima Kasih "+nama+" telah membeli Kambing kami, untuk menyelesaikan transaksi ini, silahkan melakukan transfer biaya pada rekening Berikut :");
 
         lanjut=findViewById(R.id.lanjut);
         Intent intent = getIntent();
-        String temp=intent.getExtras().getString("total");
+        int temp=transaksi.getInt("total",0);
+        int unik=transaksi.getInt("kode_unik",0);
+        int semua=unik+temp;
+
 
         lanjut.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -63,7 +69,7 @@ public class KonfirmasiPembayaran extends AppCompatActivity {
                 Intent go = new Intent(KonfirmasiPembayaran.this,akhir_pembayaran.class);
                 startActivity(go);
                 gettransaksi data=new gettransaksi();
-                data.ambil("https://idtronik.com/kambing/ajax/pembayaran");
+              //  data.ambil("https://idtronik.com/kambing/ajax/pembayaran");
             }
         });
 
@@ -71,7 +77,18 @@ public class KonfirmasiPembayaran extends AppCompatActivity {
        /* int sum=sp.getInt("jumlah",0);
         String temp=""+ NumberFormat.getNumberInstance(Locale.US).format(sum);
         temp=temp.replaceAll(",",".");*/
-        jumlah.setText(temp);
+        String temp1=""+ NumberFormat.getNumberInstance(Locale.US).format(temp);
+        temp1=temp1.replaceAll(",",".");
+        jumlah.setText("Rp."+temp1);
+
+
+        String temp2=""+ NumberFormat.getNumberInstance(Locale.US).format(semua);
+        temp2=temp2.replaceAll(",",".");
+        semuaa.setText("Rp."+temp2);
+
+        uniktxt.setText("Rp."+unik);
+
+
     }
 
 
@@ -79,7 +96,7 @@ public class KonfirmasiPembayaran extends AppCompatActivity {
     {
         int jumlah=sp.getInt("notif",0);
 
-
+/*
         public void ambil(String url)
         {
             String id_user=sp.getString("id"," ");
@@ -97,7 +114,9 @@ public class KonfirmasiPembayaran extends AppCompatActivity {
                     .getAsJSONObject(new JSONObjectRequestListener() {
                         @Override
                         public void onResponse(JSONObject response) {
-                            // String data=between(response.toString(),"\"data\":","}]}")+"}]";
+                            //String data=between(response.toString(),"\"data\":","}]}")+"}]";
+
+                            Log.d("response",response.toString());
 
 
                             String id_transaksi= null;
@@ -130,7 +149,7 @@ public class KonfirmasiPembayaran extends AppCompatActivity {
                                     Log.d("id_ternak",""+id_ternak);
                                     Log.d("harga",""+harga);
                                     Log.d("id_transaksi",""+id_transaksi);
-                                    */
+
                                     //
                                     // SharedPreferences.Editor e = sdata.edit();
 
@@ -153,6 +172,7 @@ public class KonfirmasiPembayaran extends AppCompatActivity {
 
                                                 @Override
                                                 public void onError(ANError anError) {
+
                                                     pd.dismiss();
 
                                                     Log.d("nomor","1");
@@ -175,7 +195,7 @@ public class KonfirmasiPembayaran extends AppCompatActivity {
 
                         @Override
                         public void onError(ANError anError) {
-                            Log.d("dalam","dalam");
+                           Log.d("dalam",anError.getMessage());
                             pd.dismiss();
                             Toast.makeText(KonfirmasiPembayaran.this,anError.getMessage(),Toast.LENGTH_LONG).show();
                         }
@@ -187,7 +207,7 @@ public class KonfirmasiPembayaran extends AppCompatActivity {
 
 
         }
-
+ */
         @Override
         protected String doInBackground(String... strings) {
             return null;

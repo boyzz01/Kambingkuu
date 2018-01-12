@@ -165,7 +165,7 @@ public class selesai extends Fragment {
                             }
                             else
                             {
-
+                                belum.setVisibility(View.VISIBLE);
                                 pd.dismiss();
                             }
                         }

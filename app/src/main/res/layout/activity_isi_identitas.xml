@@ -67,7 +67,6 @@
             android:hint="NIK"
             android:inputType="number"
             android:paddingLeft="5dp"
-            android:text="1234"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/nama" />
@@ -84,10 +83,9 @@
             android:hint="Tempat Lahir"
             android:inputType="text"
             android:paddingLeft="5dp"
-            android:text="medan"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/kewarganegaraan" />
+            app:layout_constraintTop_toBottomOf="@+id/nik" />
 
         <EditText
             android:id="@+id/nama"
@@ -101,42 +99,23 @@
             android:hint="Nama"
             android:inputType="textPersonName"
             android:paddingLeft="5dp"
-            android:text="ardi"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView13" />
 
-        <EditText
-            android:id="@+id/kewarganegaraan"
-            android:layout_width="250dp"
-            android:layout_height="35dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:background="@drawable/rectangular_input"
-            android:ems="10"
-            android:hint="Kewarganegaraan"
-            android:inputType="text"
-            android:paddingLeft="5dp"
-            android:text="indo"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/nik" />
-
-        <EditText
+        <TextView
             android:id="@+id/tanggallahir"
-            android:layout_width="250dp"
+            android:layout_width="150dp"
             android:layout_height="35dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
+            android:layout_marginStart="32dp"
             android:layout_marginTop="8dp"
             android:background="@drawable/rectangular_input"
             android:ems="10"
+            android:gravity="center"
             android:hint="Tanggal Lahir"
-            android:inputType="text"
+            android:inputType="date"
             android:paddingLeft="5dp"
-            android:text="01-04-1997"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:textAlignment="viewStart"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tempatlahir" />
 
@@ -152,7 +131,6 @@
             android:hint="Pekerjaan"
             android:inputType="textPersonName"
             android:paddingLeft="5dp"
-            android:text="mh"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.506"
             app:layout_constraintStart_toStartOf="parent"
@@ -170,7 +148,6 @@
             android:hint="Agama"
             android:inputType="textPersonName"
             android:paddingLeft="5dp"
-            android:text="islam"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.506"
             app:layout_constraintStart_toStartOf="parent"
@@ -188,7 +165,6 @@
             android:hint="Alamat"
             android:inputType="textPersonName"
             android:paddingLeft="5dp"
-            android:text="medan"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.506"
             app:layout_constraintStart_toStartOf="parent"
@@ -231,6 +207,18 @@
                 app:layout_constraintTop_toBottomOf="@+id/alamat" />
 
         </RadioGroup>
+
+        <ImageView
+            android:id="@+id/bukakal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/pekerjaan"
+            app:layout_constraintStart_toEndOf="@+id/tanggallahir"
+            app:layout_constraintTop_toBottomOf="@+id/tempatlahir"
+            app:srcCompat="@android:drawable/ic_menu_my_calendar" />
 
     </android.support.constraint.ConstraintLayout>
 

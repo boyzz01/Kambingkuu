@@ -17,7 +17,10 @@ import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.common.Priority;
 import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.JSONObjectRequestListener;
+import com.androidnetworking.interfaces.UploadProgressListener;
 
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.File;
@@ -25,7 +28,7 @@ import java.io.File;
 public class isi_bank extends AppCompatActivity {
     EditText namabank,atasnama,norek;
     Button selesai;
-    SharedPreferences sp;
+    SharedPreferences sp,daftartrans;
     String nb,an,rek;
     File ktp,kk,pp=null;
     String sbank,snamab,snorel;
@@ -42,6 +45,7 @@ public class isi_bank extends AppCompatActivity {
         setContentView(R.layout.activity_isi_bank);
 
         sp = isi_bank.this.getSharedPreferences("daftar", isi_bank.this.MODE_PRIVATE);
+        daftartrans = isi_bank.this.getSharedPreferences("daftartrans", isi_bank.this.MODE_PRIVATE);
 
 
         namabank=findViewById(R.id.namabank);
@@ -54,8 +58,6 @@ public class isi_bank extends AppCompatActivity {
         ktp=(File)getIntent().getExtras().get("ktp");
         kk=(File)getIntent().getExtras().get("kk");
         pp=(File)getIntent().getExtras().get("pp");
-
-
 
 
        snama=sp.getString("nama"," ");
@@ -109,26 +111,57 @@ public class isi_bank extends AppCompatActivity {
             pd.setTitle("Loading");
             pd.setMessage("Loading....Please wait");
             pd.show();
+            pd.setCancelable(false);
             AndroidNetworking.upload(url)
                     .addMultipartFile("ktp",ktp)
                     .addMultipartFile("kk",kk)
-                    .addMultipartFile("diri",pp)
+                    .addMultipartFile("foto_profil",pp)
                     .addMultipartParameter("username",uname)
                     .addMultipartParameter("password",pass)
-                    .addMultipartParameter("nama_lengkap",snama)
-                    .addMultipartParameter("id_user",snikm)
-                    .addMultipartParameter("tgl_lahir",stanggal)
+                    .addMultipartParameter("nama",snama)
+                    .addMultipartParameter("nik",snikm)
+                    .addMultipartParameter("email",semail)
+                    .addMultipartParameter("telepon",nohp)
+                    .addMultipartParameter("tanggal_lahir",stanggal)
                     .addMultipartParameter("tempat_lahir",stempat)
                     .addMultipartParameter("pekerjaan",spekerjaan)
-                    .addMultipartParameter("kewarganegaraan",skewarga)
+                    .addMultipartParameter("kewarganegaraan","indonesia")
                     .addMultipartParameter("agama",sagama)
                     .addMultipartParameter("alamat",salamat)
                     .addMultipartParameter("gender",sjk)
+                    .addMultipartParameter("no_rek",snorel)
+                    .addMultipartParameter("nama_rek",snamab)
+                    .addMultipartParameter("nama_bank",sbank)
                     .setPriority(Priority.HIGH)
                     .build()
+                    .setUploadProgressListener(new UploadProgressListener() {
+                        @Override
+                        public void onProgress(long bytesUploaded, long totalBytes) {
+                            Log.d("uploaded",bytesUploaded+" total :" +totalBytes);
+                        }
+                    })
                     .getAsJSONObject(new JSONObjectRequestListener() {
                         @Override
                         public void onResponse(JSONObject response) {
+                            SharedPreferences.Editor editor=daftartrans.edit();
+
+                            try {
+                                String id_trans_daftar=response.getString("idtransaksi");
+                                String kodeunik=response.getString("kode_unik");
+                                editor.putString("idtransaksi"," ");
+                                editor.putString("kode_unik"," ");
+
+                                Toast.makeText(isi_bank.this,"Pendaftaran Berhasil,Silahkan Login",Toast.LENGTH_SHORT).show();
+                                pd.dismiss();
+                                Intent log=new Intent(isi_bank.this, login.class);
+                                startActivity(log);
+                                finish();
+
+                            } catch (JSONException e) {
+                                pd.dismiss();
+                                e.printStackTrace();
+                            }
+
                             Log.d("berhasil",response.toString());
                             pd.dismiss();
                         }
@@ -136,6 +169,7 @@ public class isi_bank extends AppCompatActivity {
                         @Override
                         public void onError(ANError anError) {
 
+                            Log.d("gagal",anError.toString());
                             Toast.makeText(isi_bank.this,anError.toString(),Toast.LENGTH_SHORT).show();
                             pd.dismiss();
                         }

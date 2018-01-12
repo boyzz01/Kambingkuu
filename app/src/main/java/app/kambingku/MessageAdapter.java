@@ -60,6 +60,7 @@ public class MessageAdapter  extends RecyclerView.Adapter<MessageAdapter.Message
         public TextView id_a;
         public ANImageView gambar;
         public ImageView cart;
+        public TextView sold;
 
 
 
@@ -72,6 +73,7 @@ public class MessageAdapter  extends RecyclerView.Adapter<MessageAdapter.Message
             harga=view.findViewById(R.id.harga);
             gambar=view.findViewById(R.id.gambarp);
             cart=view.findViewById(R.id.cart);
+            sold=view.findViewById(R.id.sold);
 
 
 
@@ -94,6 +96,15 @@ public class MessageAdapter  extends RecyclerView.Adapter<MessageAdapter.Message
 
         final String foto1=between(c.getFoto(),"","|");
         final String foto2=between(c.getFoto(),"|","");
+
+        if (c.getStatus()==1)
+        {
+            viewHolder.sold.setVisibility(View.VISIBLE);
+        }
+        else
+        {
+            viewHolder.sold.setVisibility(View.GONE);
+        }
 
 
         String url="https://idtronik.com/kambing/assets/images/kambing/"+foto1;

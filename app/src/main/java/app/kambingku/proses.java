@@ -90,6 +90,7 @@ public class proses extends Fragment {
             pd.setTitle("Loading");
             pd.setMessage("Loading....Please wait");
             pd.show();
+            pd.setCancelable(false);
             proseskambings = new ArrayList<>();
 
 
@@ -169,7 +170,7 @@ public class proses extends Fragment {
                             }
                             else
                             {
-
+                                belum.setVisibility(View.VISIBLE);
                                 pd.dismiss();
                             }
                         }

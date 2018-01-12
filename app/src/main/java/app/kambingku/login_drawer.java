@@ -45,7 +45,7 @@ import java.util.List;
 public class login_drawer extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener{
 
-    private SharedPreferences sp;
+    private SharedPreferences sp,transaksi;;
 
     MySQLClient data;
     RecyclerView recyclerView;
@@ -205,10 +205,36 @@ public class login_drawer extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
+        if (id==R.id.konfirmasi_pembayaran)
+        {
+            transaksi=login_drawer.this.getSharedPreferences("transaksi", login_drawer.this.MODE_PRIVATE);
+            if (transaksi.contains("kode_unik") && transaksi.contains("total"))
+            {
+                if (transaksi.getInt("kode_unik",0)==0 && transaksi.getInt("total",0)==0)
+                {
+                    Toast.makeText(login_drawer.this,"Anda tidak memiliki pembayaran yang perlu di konfirmasi",Toast.LENGTH_SHORT).show();
+                }
+                else
+                {
+                    Intent go = new Intent(login_drawer.this,KonfirmasiPembayaran.class);
+                    startActivity(go);
+                }
+            }
+            else
+            {
+                Toast.makeText(login_drawer.this,"Anda tidak memiliki pembayaran yang perlu di konfirmasi",Toast.LENGTH_SHORT).show();
+            }
+        }
         if (id==R.id.bantuan)
         {
             Intent bant = new Intent(login_drawer.this,welcome.class);
             startActivity(bant);
+        }
+
+        if (id==R.id.edit_profile)
+        {
+            Intent edit=new Intent(login_drawer.this,edit_profil.class);
+            startActivity(edit);
         }
 
         if (id==R.id.perkembangan_produk)

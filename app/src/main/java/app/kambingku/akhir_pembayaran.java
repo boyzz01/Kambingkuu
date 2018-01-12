@@ -18,6 +18,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -33,6 +34,7 @@ import com.androidnetworking.interfaces.UploadProgressListener;
 import org.json.JSONObject;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 
 
@@ -44,18 +46,19 @@ public class akhir_pembayaran extends AppCompatActivity {
     TextView upload;
     RadioButton pribadi,pinjaman;
     RadioGroup radioGroup;
-    String sumber="";
+    int sumber=0;
     Button lanjut;
     Boolean centang=false;
     Boolean up=false;
-    File file;
+    public File file;
     Uri imageUri=null;
+    ImageView tes;
     private static final int REQUEST_CAMERA = 1;
     private static final int SELECT_FILE = 2;
     String url="https://idtronik.com/kambing/ajax/konfirmasi_pembayaran";
     Context c;
     ProgressDialog pd;
-    SharedPreferences transaksi;
+    SharedPreferences transaksi,sp;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -72,17 +75,18 @@ public class akhir_pembayaran extends AppCompatActivity {
         c=this;
 
 
+
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
                 if (i==R.id.pribadi)
                 {
 
-                    sumber="pribadi";
+                   sumber=1;
                 }
                 if (i==R.id.pinjaman)
                 {
-                    sumber="pinjaman";
+                    sumber=0;
 
                 }
             }
@@ -163,7 +167,7 @@ public class akhir_pembayaran extends AppCompatActivity {
         lanjut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                    if (namabank.getText().toString().equals("") || atasnama.getText().toString().equals("") || jumlah.getText().toString().equals("") ||sumber.equals(""))
+                    if (namabank.getText().toString().equals("") || atasnama.getText().toString().equals("") || jumlah.getText().toString().equals(""))
                     {
                         Toast.makeText(akhir_pembayaran.this,"Tidak Boleh Ada Data Yang Kosong",Toast.LENGTH_SHORT).show();
 
@@ -196,18 +200,23 @@ public class akhir_pembayaran extends AppCompatActivity {
             transaksi=akhir_pembayaran.this.getSharedPreferences("transaksi", akhir_pembayaran.this.MODE_PRIVATE);
             String id_transaksi=transaksi.getString("id"," ");
 
+            Log.d("idyrans",id_transaksi);
+            sp=akhir_pembayaran.this.getSharedPreferences("login", akhir_pembayaran.this.MODE_PRIVATE);
+            String user=sp.getString("id"," ");
+
             pd=new ProgressDialog(c);
             pd.setTitle("Loading");
             pd.setMessage("Loading....Please wait");
             pd.show();
-            AndroidNetworking.post(url)
-                    .addFileBody(file)
-                    .addBodyParameter("id_transaksi",""+id_transaksi)
-                    .addBodyParameter("jumlah_transfer","8")
-                    .addBodyParameter("option_sumberdana0","1")
-                    .addBodyParameter("nama_bank","bniii")
-                    .addBodyParameter("atas_nama","ardoooo")
-                    .addBodyParameter("id_user","4")
+            pd.setCancelable(false);
+            AndroidNetworking.upload(url)
+                    .addMultipartFile("bukti",file)
+                    .addMultipartParameter("id_transaksi",""+id_transaksi)
+                    .addMultipartParameter("jumlah_transfer",jumlah.getText().toString())
+                    .addMultipartParameter("option_sumberdana0",""+sumber)
+                    .addMultipartParameter("nama_bank",namabank.getText().toString())
+                    .addMultipartParameter("atas_nama",atasnama.getText().toString())
+                    .addMultipartParameter("id_user",user)
                     .setPriority(Priority.HIGH)
                     .build()
                     .setUploadProgressListener(new UploadProgressListener() {
@@ -220,6 +229,14 @@ public class akhir_pembayaran extends AppCompatActivity {
                         @Override
                         public void onResponse(JSONObject response) {
                             Log.d("berhasil",response.toString());
+                            Toast.makeText(akhir_pembayaran.this,"Upload Berhasil, Mohon tunggu verifikasi kami",Toast.LENGTH_LONG).show();
+                            transaksi=akhir_pembayaran.this.getSharedPreferences("transaksi", akhir_pembayaran.this.MODE_PRIVATE);
+                            SharedPreferences.Editor editor=transaksi.edit();
+                            editor.putInt("kode_unik",0);
+                            editor.putInt("total",0);
+                            editor.commit();
+                            Intent kontrak= new Intent(akhir_pembayaran.this,suratkontrak.class);
+                            startActivity(kontrak);
                             pd.dismiss();
                         }
 
@@ -252,7 +269,9 @@ public class akhir_pembayaran extends AppCompatActivity {
                 if (resultCode == RESULT_OK) {
                    file = new File(Environment.getExternalStorageDirectory().getPath(), "photo.jpg");
 
-                    imageUri = Uri.fromFile(file);
+                   imageUri = Uri.fromFile(file);
+
+                    Log.d("imageuri",imageUri.toString());
 
                     String displayname;
 
@@ -299,15 +318,25 @@ public class akhir_pembayaran extends AppCompatActivity {
                     imageUri = data.getData();
                     //push(imageUri);
                     String displayname;
+                    Log.d("imageuri",imageUri.toString());
+
 
 
                     //  Bitmap bmp = BitmapFactory.decodeFile();
 
 
+
                     if (imageUri != null) {
+                        Uri temp;
                         String uristring=imageUri.toString();
                         File myFile = new File(uristring);
+                        Log.d("uristring",uristring);
                         file=myFile;
+
+
+
+
+                        Log.d("file",file.toString());
                         if (uristring.startsWith("content://"))
                         {
                             Cursor cursor = null;
@@ -315,19 +344,21 @@ public class akhir_pembayaran extends AppCompatActivity {
                                 cursor = akhir_pembayaran.this.getContentResolver().query(imageUri,null,null,null,null);
                                 if (cursor!= null && cursor.moveToFirst())
                                 {
+                                    String filepath=cursor.getString(0);
+                                    Log.d("tess",filepath);
                                     displayname = cursor.getString(cursor.getColumnIndex(OpenableColumns.DISPLAY_NAME));
-                                    upload.setText(displayname);
+                                    upload.setText(displayname+" content");
 
                                 }
-                            }
-                            finally {
+
+                            } finally {
                                 cursor.close();
                             }
                         }
                         else if (uristring.startsWith("file://"))
                         {
                             displayname= myFile.getName();
-                            upload.setText(displayname);
+                            upload.setText(displayname+" file");
 
                         }
 

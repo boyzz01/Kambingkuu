@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/white"
     tools:context="app.kambingku.suratkontrak">
 
     <ScrollView
@@ -11,13 +12,15 @@
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/textView56"
@@ -40,16 +43,107 @@
                 android:text="Para pihak yang bertanda tangan di bawah ini, masing‐masing :"
                 android:textColor="@android:color/black" />
 
-            <TextView
-                android:id="@+id/textView59"
+            <android.support.constraint.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
                 android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginTop="5dp"
-                android:lineSpacingExtra="4sp"
-                android:text="Nama \u0009\u0009\u0009\u0009\u0009\u0009\u0009\u0009\u0009\u0009	: 	Ardi Syahputra \nNo. KTP/Identitas 	\u0009\u0009\u0009: 	4  \nTempat Tanggal Lahir \u0009	: 	Medan, 1993-05-26 \nAlamat \u0009\u0009\u0009\u0009\u0009\u0009\u0009\u0009\u0009\u0009	: 	Medan  "
-                android:textColor="@android:color/black" />
+                android:layout_marginRight="10dp">
+
+                <TextView
+                    android:id="@+id/textView57"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="No.KTP/identitas"
+                    android:textColor="@android:color/black"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView59" />
+
+                <TextView
+                    android:id="@+id/textView59"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Nama"
+                    android:textColor="@android:color/black"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/textView60"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Tempat, Taggal Lahir"
+                    android:textColor="@android:color/black"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView57"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/textView61"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginTop="8dp"
+                    android:text="Alamat"
+                    android:textColor="@android:color/black"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView60" />
+
+                <TextView
+                    android:id="@+id/nama"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginTop="8dp"
+                    android:text="TextView"
+                    android:textColor="@android:color/black"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/ktp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginTop="8dp"
+                    android:text="TextView"
+                    android:textColor="@android:color/black"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/nama" />
+
+                <TextView
+                    android:id="@+id/ttl"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginTop="8dp"
+                    android:text="TextView"
+                    android:textColor="@android:color/black"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/ktp" />
+
+                <TextView
+                    android:id="@+id/alamat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginTop="8dp"
+                    android:text="TextView"
+                    android:textColor="@android:color/black"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/ttl" />
+            </android.support.constraint.ConstraintLayout>
 
             <TextView
                 android:id="@+id/textView65"
@@ -405,10 +499,10 @@
                 android:id="@+id/textView98"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="(1) Surat perjanjian kontrak kerjasama ini dapat digunakan sah dan legal secara hukum, dan dapat dipertanggungjawabkan secara hukum di wilayah Kesatuan Negara Republik Indonesia (NKRI)  \n\n(2) Bahwa hal‐hal yang tidak dan/atau belum cukup diatur dalam Kontrak Kemitraan ini akan diputuskan bersama oleh Para Pihak secara Musyawarah serta dengan berpedoman pada ketentuan‐ketentuan dan jiwa dari perikatan/Kontrak ini, dan dituangkan secara tertulis dalam Addendum Kontrak yang merupakan bagian yang tidak terpisahkan dari Kontrak ini atau menjadi satu kesatuan dengan kontrak ini.  \n\n(3) Bahwa didalam semua dan segala sesuatu yang bertalian dengan Kontrak Kemitraan ini dengan segala akibatnya, maka Para Pihak sepakat memilih tempat kediaman hukum (domisili) yang umum dan tetap di Kantor Kepaniteraan Pengadilan Negeri Deli Serdang Propinsi Sumatera Utara."
                 android:layout_marginLeft="10dp"
-                android:layout_marginTop="5dp"
                 android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                android:text="(1) Surat perjanjian kontrak kerjasama ini dapat digunakan sah dan legal secara hukum, dan dapat dipertanggungjawabkan secara hukum di wilayah Kesatuan Negara Republik Indonesia (NKRI)  \n\n(2) Bahwa hal‐hal yang tidak dan/atau belum cukup diatur dalam Kontrak Kemitraan ini akan diputuskan bersama oleh Para Pihak secara Musyawarah serta dengan berpedoman pada ketentuan‐ketentuan dan jiwa dari perikatan/Kontrak ini, dan dituangkan secara tertulis dalam Addendum Kontrak yang merupakan bagian yang tidak terpisahkan dari Kontrak ini atau menjadi satu kesatuan dengan kontrak ini.  \n\n(3) Bahwa didalam semua dan segala sesuatu yang bertalian dengan Kontrak Kemitraan ini dengan segala akibatnya, maka Para Pihak sepakat memilih tempat kediaman hukum (domisili) yang umum dan tetap di Kantor Kepaniteraan Pengadilan Negeri Deli Serdang Propinsi Sumatera Utara."
                 android:textColor="@android:color/black" />
 
             <TextView
@@ -423,7 +517,7 @@
                 android:textColor="@android:color/black" />
 
             <Button
-                android:id="@+id/button2"
+                android:id="@+id/terima"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
