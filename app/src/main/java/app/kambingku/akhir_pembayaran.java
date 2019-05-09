@@ -104,6 +104,7 @@ public class akhir_pembayaran extends AppCompatActivity {
         upload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //upload
                 File file = new File(Environment.getExternalStorageDirectory()
                         .getPath(), "Kambing Ummat");
                 String uriSting = (file.getAbsolutePath() + "/"

@@ -286,9 +286,11 @@
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:layout_centerVertical="true"
+                android:layout_marginBottom="8dp"
+                android:layout_marginTop="8dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/relativeLayout"
+                app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/icon_cart" />
 
             <TextView
@@ -303,9 +305,10 @@
                 android:layout_marginTop="8dp"
                 android:text="Tambahkan ke Keranjang"
                 android:textColor="@android:color/white"
-                app:layout_constraintBottom_toBottomOf="@+id/relativeLayout"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/imageView17"
-                app:layout_constraintTop_toTopOf="@+id/relativeLayout" />
+                app:layout_constraintTop_toTopOf="parent" />
         </android.support.constraint.ConstraintLayout>
 
     </android.support.constraint.ConstraintLayout>
